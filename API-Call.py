@@ -1,22 +1,32 @@
 import requests
-import json
+import zipfile
+import os
 
-api_key = 'ea170fe88847bee447ed2cd9aa5fad90ab0f99b9'
+# The URL for the bulk archive
+url = 'https://data.bus-data.dft.gov.uk/avl/download/bulk_archive'
 
-url = 'https://data.bus-data.dft.gov.uk/api/v1/datafeed/?api_key=' + api_key
+# Path to save the downloaded zip file
+zip_file_path = 'bulk_archive.zip'
+extract_folder = 'extracted_data'
 
-def fetch_data(url):
+# Function to download the zip file
+def download_zip(url, zip_file_path):
     response = requests.get(url)
     if response.status_code == 200:
-        return response.json()
+        with open(zip_file_path, 'wb') as f:
+            f.write(response.content)
+        print(f"Downloaded zip file to {zip_file_path}")
     else:
-        response.raise_for_status()
+        print(f"Failed to download file, status code {response.status_code}")
 
-data = fetch_data(url)
-print(json.dumps(data, indent=4))
+# Function to extract the zip file
+def extract_zip(zip_file_path, extract_folder):
+    with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+        # Ensure the folder exists
+        os.makedirs(extract_folder, exist_ok=True)
+        zip_ref.extractall(extract_folder)
+        print(f"Extracted to {extract_folder}")
 
-
-
-
-
-
+# Main script
+download_zip(url, zip_file_path)
+extract_zip(zip_file_path, extract_folder)
