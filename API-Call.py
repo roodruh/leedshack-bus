@@ -35,10 +35,8 @@ extract_zip(zip_file_path, extract_folder)
 
 
 input()
-print("A")
 
 with open("AdamSQLAlchemy.py") as f:
     exec(f.read())
 
-print("B")
 

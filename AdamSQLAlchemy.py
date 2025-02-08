@@ -12,7 +12,7 @@ with open("data.json", "w") as json_file:
 
 with open('data.json', 'r') as json_file:
     json_object = json.load(json_file)
-print("worked")
+
 
 
 
@@ -22,7 +22,7 @@ print("worked")
 #print(json_object)
 
 
-with open("Pdata.json", "w") as json_file:
-        json_file.write(json.dumps(json_object, indent=1))
-        json_file.write("\n")
+# with open("Pdata.json", "w") as json_file:
+#         json_file.write(json.dumps(json_object, indent=1))
+#         json_file.write("\n")
 
