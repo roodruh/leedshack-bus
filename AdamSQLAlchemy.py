@@ -12,13 +12,17 @@ with open("data.json", "w") as json_file:
 
 with open('data.json', 'r') as json_file:
     json_object = json.load(json_file)
+print("worked")
 
 
 
 #print(json.dumps(json_object))
 
-json_object = (json.dumps(json_object, indent=1))
+#json_object = (json.dumps(json_object, indent=1))
+#print(json_object)
+
 
 with open("Pdata.json", "w") as json_file:
-        json_file.write(json_data)
+        json_file.write(json.dumps(json_object, indent=1))
+        json_file.write("\n")
 
