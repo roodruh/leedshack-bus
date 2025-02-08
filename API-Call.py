@@ -30,3 +30,7 @@ def extract_zip(zip_file_path, extract_folder):
 # Main script
 download_zip(url, zip_file_path)
 extract_zip(zip_file_path, extract_folder)
+
+
+
+input()
