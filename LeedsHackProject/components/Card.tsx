@@ -36,7 +36,7 @@ const Card: React.FC<CardProps> = ({
                 <View style={styles.leftSide}>
 
                     <View style={styles.locationRow}>
-                        <FontAwesome style={styles.iconContainer} name="paper-plane" size={16} color="#FF8C00" />
+                        <FontAwesome style={styles.iconContainer} name="location-arrow" size={16} color="#FF8C00" />
                         <Text style={styles.locationText}>{location1}</Text>
                     </View>
 
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
         padding: 12,
         backgroundColor: '#f58700',
         color: 'white',
-        borderRadius: '50%',
+        borderRadius: '60%',
         elevation: 3, // Android shadow
         shadowOffset: { width: 0, height: 2 }, // iOS shadow
         shadowRadius: 4,                     // iOS shadow
