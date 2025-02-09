@@ -61,9 +61,11 @@ def process_json_files(extracted_folder):
                         print(f"Data has been fixed for {filename}.")
                     else:
                         print(f"Data is iterable for {filename}.")
-                    
-                    # You can process the data here, such as saving it, printing, etc.
-                    print(data)  # Just printing the content for now
+
+                    # Save the fixed data back to the file
+                    with open(file_path, 'w') as f:
+                        json.dump(data, f, indent=4)
+                        print(f"Fixed data saved for {filename}.")
 
             except Exception as e:
                 print(f"Failed to process {filename}: {e}")
