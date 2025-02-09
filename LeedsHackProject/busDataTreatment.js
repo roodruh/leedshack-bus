@@ -1,7 +1,6 @@
 const fs = require('fs');
 const prompt = require('prompt-sync')();
 
-// Helper function: splits an array into chunks of a given size
 function chunkArray(array, chunkSize) {
   const chunks = [];
   for (let i = 0; i < array.length; i += chunkSize) {
@@ -10,27 +9,21 @@ function chunkArray(array, chunkSize) {
   return chunks;
 }
 
-// Function to extract the actual array of records from the JSON data.
-// This function goes down known levels if they exist.
+
 function extractDataArray(jsonData) {
-  // If the JSON has a top-level key "Siri", go down into it.
   if (jsonData.Siri) {
     jsonData = jsonData.Siri;
   }
-  // If "ServiceDelivery" exists, go down a level.
   if (jsonData.ServiceDelivery) {
     jsonData = jsonData.ServiceDelivery;
   }
-  // If "VehicleMonitoringDelivery" exists, go down a level.
   if (jsonData.VehicleMonitoringDelivery) {
     jsonData = jsonData.VehicleMonitoringDelivery;
   }
-  // If "VehicleActivity" exists and is an array, that's our data.
   if (jsonData.VehicleActivity && Array.isArray(jsonData.VehicleActivity)) {
     return jsonData.VehicleActivity;
   }
 
-  // Fallback: try to extract an array by scanning top-level keys.
   let dataArray;
   for (const key in jsonData) {
     if (Array.isArray(jsonData[key])) {
@@ -57,7 +50,6 @@ function extractDataArray(jsonData) {
   return dataArray;
 }
 
-// Function to search for a vehicle reference within a chunk.
 function searchVehicleRefInChunk(chunk, targetVehicleRef) {
   for (const entry of chunk) {
     if (
@@ -72,8 +64,7 @@ function searchVehicleRefInChunk(chunk, targetVehicleRef) {
   return null;
 }
 
-// Main function to process the JSON file in chunks.
-function processJSONFileInChunks(filePath, chunkSize, targetVehicleRef) {
+export function processJSONFileInChunks(filePath, chunkSize, targetVehicleRef) {
   try {
     const rawData = fs.readFileSync(filePath, 'utf8');
     const jsonData = JSON.parse(rawData);
@@ -93,11 +84,9 @@ function processJSONFileInChunks(filePath, chunkSize, targetVehicleRef) {
     if (foundEntry) {
       console.log("Vehicle found:", foundEntry);
 
-      // Prompt the user for feedback
       const feedback = prompt("Please enter your feedback: ");
       foundEntry.feedback = feedback;
 
-      // Write the found entry to a text file as a pretty-printed JSON string.
       fs.writeFileSync('foundEntry.txt', JSON.stringify(foundEntry, null, 2), 'utf8');
       console.log("Found entry written to foundEntry.txt");
     } else {
@@ -108,14 +97,10 @@ function processJSONFileInChunks(filePath, chunkSize, targetVehicleRef) {
   }
 }
 
-// Use your specified file path.
 const filePath = 'C:/Users/adamj/OneDrive/Documents/leedsHack2025/leedshack-bus/LeedsHackProject/data.json';
 
-// Prompt the user for a vehicle reference number.
 const targetVehicleRef = prompt("Please enter your vehicle reference number: ");
 
-// Define your chunk size (adjust as needed).
 const chunkSize = 100;
 
-// Run the processing function.
 processJSONFileInChunks(filePath, chunkSize, targetVehicleRef);
