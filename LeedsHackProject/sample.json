@@ -1,0 +1,117 @@
+[
+    {
+      "RecordedAtTime": "2025-02-08T13:25:52+00:00",
+      "ItemIdentifier": "722195af-5d89-447b-b6e4-fe4b04fba883",
+      "ValidUntilTime": "2025-02-08T13:31:06.228+00:00",
+      "MonitoredVehicleJourney": {
+        "LineRef": "X65",
+        "DirectionRef": "inbound",
+        "FramedVehicleJourneyRef": {
+          "DataFrameRef": "2025-02-08",
+          "DatedVehicleJourneyRef": "3034"
+        },
+        "PublishedLineName": "X65",
+        "OperatorRef": "AMNO",
+        "OriginRef": "3800C902405",
+        "OriginName": "Corporation_St",
+        "DestinationRef": "3800C403905",
+        "DestinationName": "Bus_Station",
+        "OriginAimedDepartureTime": "2025-02-08T13:30:00+00:00",
+        "DestinationAimedArrivalTime": "2025-02-08T13:50:00+00:00",
+        "VehicleLocation": {
+          "Longitude": "-1.696291",
+          "Latitude": "52.635181"
+        },
+        "BlockRef": "03018",
+        "VehicleRef": "3584"
+      },
+      "Extensions": {
+        "VehicleJourney": {
+          "Operational": {
+            "TicketMachine": {
+              "TicketMachineServiceCode": "775",
+              "JourneyCode": "1330"
+            }
+          },
+          "VehicleUniqueId": "3584"
+        }
+      }
+    },
+    {
+      "RecordedAtTime": "2025-02-08T13:12:50+00:00",
+      "ItemIdentifier": "349a8f77-455b-4c4f-b9f9-44bd4917a101",
+      "ValidUntilTime": "2025-02-08T13:31:06.228+00:00",
+      "MonitoredVehicleJourney": {
+        "LineRef": "2",
+        "DirectionRef": "inbound",
+        "FramedVehicleJourneyRef": {
+          "DataFrameRef": "2025-02-08",
+          "DatedVehicleJourneyRef": "3046"
+        },
+        "PublishedLineName": "2",
+        "OperatorRef": "AMNO",
+        "OriginRef": "3800C904404",
+        "OriginName": "Victoria_Road_Bus_Interchange",
+        "DestinationRef": "3800C904404",
+        "DestinationName": "Victoria_Road_Bus_Interchange",
+        "OriginAimedDepartureTime": "2025-02-08T12:58:00+00:00",
+        "DestinationAimedArrivalTime": "2025-02-08T13:13:00+00:00",
+        "VehicleLocation": {
+          "Longitude": "-1.691403",
+          "Latitude": "52.632708"
+        },
+        "BlockRef": "3025",
+        "VehicleRef": "3585"
+      },
+      "Extensions": {
+        "VehicleJourney": {
+          "Operational": {
+            "TicketMachine": {
+              "TicketMachineServiceCode": "6702",
+              "JourneyCode": "1258"
+            }
+          },
+          "VehicleUniqueId": "3585"
+        }
+      }
+    },
+    {
+      "RecordedAtTime": "2025-02-08T13:26:01+00:00",
+      "ItemIdentifier": "d2c25f89-d0c0-4d23-8ef2-fedb1415b496",
+      "ValidUntilTime": "2025-02-08T13:31:06.228+00:00",
+      "MonitoredVehicleJourney": {
+        "LineRef": "X65",
+        "DirectionRef": "outbound",
+        "FramedVehicleJourneyRef": {
+          "DataFrameRef": "2025-02-08",
+          "DatedVehicleJourneyRef": "3031"
+        },
+        "PublishedLineName": "X65",
+        "OperatorRef": "AMNO",
+        "OriginRef": "3800C403905",
+        "OriginName": "Bus_Station",
+        "DestinationRef": "3800C902405",
+        "DestinationName": "Corporation_St",
+        "OriginAimedDepartureTime": "2025-02-08T13:30:00+00:00",
+        "DestinationAimedArrivalTime": "2025-02-08T13:50:00+00:00",
+        "VehicleLocation": {
+          "Longitude": "-1.825315",
+          "Latitude": "52.681653"
+        },
+        "BlockRef": "3032",
+        "VehicleRef": "3586"
+      },
+      "Extensions": {
+        "VehicleJourney": {
+          "Operational": {
+            "TicketMachine": {
+              "TicketMachineServiceCode": "775",
+              "JourneyCode": "1330"
+            }
+          },
+          "VehicleUniqueId": "3586"
+        }
+      }
+    }
+  ]
+  
