@@ -1,27 +1,11 @@
-
-
-let feedbackArray = [];
-onUserFeedback = function (feedback) {
-
-    
-    
-    InputDeviceInfo(VehicleRef, feedback);
-    myArr.push(userID, VehicleRef, feedback);
-
-
-
-}
-
-
-
-
 const fs = require('fs');
 
-const data = JSON.parse(fs.readFileSync('/c:/Users/adamj/OneDrive/Documents/leedsHack2025/leedshack-bus/LeedsHackProject/sample.json', 'utf8'));
+// Corrected file path
+const data = JSON.parse(fs.readFileSync('C:/Users/adamj/OneDrive/Documents/leedsHack2025/leedshack-bus/LeedsHackProject/sample.json', 'utf8'));
 
-function searchVehicleRef(vehicleRef) {
+function searchVehicleRef(VehicleRef) {
     for (const entry of data) {
-        if (entry.MonitoredVehicleJourney.VehicleRef === vehicleRef) {
+        if (entry.MonitoredVehicleJourney.VehicleRef === VehicleRef) {
             const {
                 Longitude,
                 Latitude
@@ -56,8 +40,8 @@ function searchVehicleRef(vehicleRef) {
     return null;
 }
 
-const vehicleRef = '3584'; 
-const result = searchVehicleRef(vehicleRef);
+const VehicleRef = '3584'; 
+const result = searchVehicleRef(VehicleRef);
 console.log(result);
 
 
