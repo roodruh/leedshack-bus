@@ -4,6 +4,7 @@ const { TextInput } = require('react-native');
 // Corrected file path
 const data = JSON.parse(fs.readFileSync('C:/Users/adamj/OneDrive/Documents/leedsHack2025/leedshack-bus/LeedsHackProject/sample.json', 'utf8'));
 
+
 function searchVehicleRef(VehicleRef) {
     for (const entry of data) {
         if (entry.MonitoredVehicleJourney.VehicleRef === VehicleRef) {
@@ -41,7 +42,8 @@ function searchVehicleRef(VehicleRef) {
     return null;
 }
 
-const VehicleRef = '3584'; 
+const VehicleRef = prompt("enter your vehicle reference number: "); 
+
 const result = searchVehicleRef(VehicleRef);
 console.log(result);
 
