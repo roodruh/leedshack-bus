@@ -1,9 +1,7 @@
 const fs = require('fs');
-const { TextInput } = require('react-native');
-
+const prompt = require('prompt-sync')();
 // Corrected file path
 const data = JSON.parse(fs.readFileSync('C:/Users/adamj/OneDrive/Documents/leedsHack2025/leedshack-bus/LeedsHackProject/sample.json', 'utf8'));
-
 
 function searchVehicleRef(VehicleRef) {
     for (const entry of data) {
@@ -13,7 +11,6 @@ function searchVehicleRef(VehicleRef) {
                 Latitude
             } = entry.MonitoredVehicleJourney.VehicleLocation;
             const {
-                VehicleRef,
                 JourneyCode
             } = entry.Extensions.VehicleJourney.Operational.TicketMachine;
             const {
@@ -24,7 +21,7 @@ function searchVehicleRef(VehicleRef) {
                 OriginAimedDepartureTime,
                 DestinationAimedArrivalTime
             } = entry.MonitoredVehicleJourney;
-
+            const{VehicleRef} = entry.MonitoredVehicleJourney;
             return {
                 Longitude,
                 Latitude,
@@ -42,8 +39,7 @@ function searchVehicleRef(VehicleRef) {
     return null;
 }
 
-const VehicleRef = prompt("enter your vehicle reference number: "); 
-
+const VehicleRef = prompt("please enter your vehicle reference number: "); 
 const result = searchVehicleRef(VehicleRef);
 console.log(result);
 
