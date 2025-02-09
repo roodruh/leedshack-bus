@@ -79,13 +79,13 @@ const awards = () => {
     {
       name: 'John Doe',
       rating: 4,
-      description: 'Great service! The food was delicious and the staff was friendly.',
+      description: 'The bus actually arrived on time today!',
       imageUrl: 'https://i.redd.it/i-got-bored-so-i-decided-to-draw-a-random-image-on-the-v0-4ig97vv85vjb1.png?width=1280&format=png&auto=webp&s=7177756d1f393b6e093596d06e1ba539f723264b', // Replace with a real URL
     },
     {
       name: 'Jane Smith',
       rating: 5,
-      description: 'Excellent experience. Highly recommend!',
+      description: 'Bus did not smell at all',
       imageUrl: 'https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png', // Replace with a real URL
     },
     // Add more reviews here...
