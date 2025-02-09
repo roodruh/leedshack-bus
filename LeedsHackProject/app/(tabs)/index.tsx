@@ -1,72 +1,91 @@
-import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
-import Card from '../../components/Card'; // Assuming the file is named Card.tsx
-import { ScrollView } from 'react-native-gesture-handler';
-import HalfGradient from '../../components/HalfGradient'; // Import your gradient component
-
-import { FontAwesome } from '@expo/vector-icons';
+import React from 'react';
+import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native';
+import DateTimePicker from "@react-native-community/datetimepicker";
+import {useState} from "react";
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import HalfGradient from '../../components/HalfGradient'; 
 
 const index = () => {
+  const [date, setDate] = useState(new Date());
+  const [show, setShow] = useState(false);
+  const [mode, setMode] = useState("date");
+
+  const onChange = (e: any, selectedDate?: Date) => {
+    const currentDate = selectedDate || date;
+    setDate(currentDate);
+    setShow(false);
+  }
+
+
   return (
     <View style={styles.container}>
-      <HalfGradient colors={['#FF8C00', '#FFD700']} heightPercent={0.5} />
+    <HalfGradient colors={['#FF8C00', '#FFD700']} heightPercent={0.5} />
 
-      <View style={styles.containerHeading}>
-        <Text style={styles.heading}>Location1</Text>
-        <FontAwesome style={styles.headingIcon} name="exchange" size={16} color="#FF8C00" />
-        <Text style={styles.heading}>Location2</Text>
-      </View>
+    <Text style={styles.text}>Give a review</Text>
 
-      <View style={styles.cardsContainer}>
-          <Card 
-          location1="New York" 
-          location2="Los Angeles" 
-          origin="New York Depot" 
-          travelTime="6h 30m"
-          price="50"
-          />
-          <Card 
-          location1="New York" 
-          location2="Los Angeles" 
-          origin="New York Depot" 
-          travelTime="6h 30m"
-          price="50"
-          />
-      </View>
-        
+    <View style={styles.datePickerContainer}>
+      <Text>Arrived At</Text>
+      <DateTimePicker
+          value={date}
+          is24Hour={true}
+          onChange={onChange}
+          mode='time'
+        />
     </View>
-  )
+
+    <View style={styles.starsReviewContainer}>
+      <Text>Star Rating</Text>
+      
+      <View style={styles.stars}>
+        <FontAwesome name="star" size={24} color="#FF8C00" />
+        <FontAwesome name="star" size={24} color="#FF8C00" />
+        <FontAwesome name="star" size={24} color="#FF8C00" />
+        <FontAwesome name="star" size={24} color="#FF8C00" />
+        <FontAwesome name="star" size={24} color="#FF8C00" />
+      </View>
+    </View>
+  </View>
+  );
 };
+
+// container: {
+//   flexGrow: 1,
+//   padding: 4,
+//   justifyContent: 'center',
+//   flex: 1,
+// },
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    padding: 4,
-    justifyContent: 'center',
     flex: 1,
-  },
-  containerHeading: {
+    position: 'relative',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 8,
+    backgroundColor: '#f0f0f0',
+    padding: 20,
+  },
+  text: {
+    fontSize: 20,
+    color: '#333',
+    marginBottom: 20,
+  },
+  datePickerContainer: {
+    marginBottom: 30,
+    display: 'flex',
     flexDirection: 'row',
-    marginBottom: 32,
+    alignItems: 'center',
   },
-
-  heading: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: 'white',
-    margin: 'auto',
+  starsReviewContainer: {
+    flexDirection: 'column',
+    display: 'flex',
+    alignItems: 'center',
   },
-  headingIcon: {
-    color: 'white',
-    fontSize: 24,
-  },
-
-  cardsContainer: {
-    gap: 16, // Adds space between cards
+  stars: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 10,
+    gap: 8,
   },
 });
 
-export default index
+
+export default index;

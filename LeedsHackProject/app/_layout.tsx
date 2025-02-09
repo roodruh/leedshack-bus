@@ -10,7 +10,6 @@ import { View, StyleSheet } from 'react-native';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -31,17 +30,17 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <View style={styles.container}>
+      {/* <View style={styles.container}> */}
 
-        <View style={styles.stackWrapper}>
+        {/* <View style={styles.stackWrapper}> */}
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="+not-found" />
           </Stack>
-        </View>
+        {/* </View> */}
 
         <StatusBar style="auto" />
-      </View>
+      {/* </View> */}
     </ThemeProvider>
   );
 }
@@ -49,12 +48,12 @@ export default function RootLayout() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    position: 'relative',  // This will ensure positioning context for children
+    position: 'relative',  
     backgroundColor: '#F5F5F5',
   },
   stackWrapper: {
     flex: 1,
-    zIndex: 1,  // Ensures the stack navigation sits above the gradient background
-    position: 'relative',  // This helps in controlling the relative layout of stack
+    zIndex: 1,  
+    position: 'relative',  
   },
 });
