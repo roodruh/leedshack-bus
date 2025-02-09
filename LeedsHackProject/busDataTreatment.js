@@ -92,6 +92,14 @@ function processJSONFileInChunks(filePath, chunkSize, targetVehicleRef) {
 
     if (foundEntry) {
       console.log("Vehicle found:", foundEntry);
+
+      // Prompt the user for feedback
+      const feedback = prompt("Please enter your feedback: ");
+      foundEntry.feedback = feedback;
+
+      // Write the found entry to a text file as a pretty-printed JSON string.
+      fs.writeFileSync('foundEntry.txt', JSON.stringify(foundEntry, null, 2), 'utf8');
+      console.log("Found entry written to foundEntry.txt");
     } else {
       console.log("Vehicle not found.");
     }

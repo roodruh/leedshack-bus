@@ -1,0 +1,40 @@
+{
+  "RecordedAtTime": "2025-02-08T13:25:50+00:00",
+  "ItemIdentifier": "6f7ba6ae-2997-4b70-b7a4-98704da8a50f",
+  "ValidUntilTime": "2025-02-08T13:31:06.228+00:00",
+  "MonitoredVehicleJourney": {
+    "LineRef": "10",
+    "DirectionRef": "outbound",
+    "FramedVehicleJourneyRef": {
+      "DataFrameRef": "2025-02-08",
+      "DatedVehicleJourneyRef": "1353"
+    },
+    "PublishedLineName": "10",
+    "OperatorRef": "BNGN",
+    "OriginRef": "1800SHIC0J1",
+    "OriginName": "Shudehill_Interchange",
+    "DestinationRef": "1800NF02801",
+    "DestinationName": "Salford_City_Academy",
+    "OriginAimedDepartureTime": "2025-02-08T13:12:00+00:00",
+    "DestinationAimedArrivalTime": "2025-02-08T14:13:00+00:00",
+    "VehicleLocation": {
+      "Longitude": "-2.259325",
+      "Latitude": "53.490187"
+    },
+    "Bearing": "338",
+    "BlockRef": "530124",
+    "VehicleRef": "3469"
+  },
+  "Extensions": {
+    "VehicleJourney": {
+      "Operational": {
+        "TicketMachine": {
+          "TicketMachineServiceCode": "10B",
+          "JourneyCode": "1312"
+        }
+      },
+      "VehicleUniqueId": "3469"
+    }
+  },
+  "feedback": "1234"
+}
