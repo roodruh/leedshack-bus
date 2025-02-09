@@ -1,8 +1,8 @@
 import requests
 import zipfile
 import os
-import json
-import xmltodict
+
+
 # The URL for the bulk archive
 url = 'https://data.bus-data.dft.gov.uk/avl/download/bulk_archive'
 
