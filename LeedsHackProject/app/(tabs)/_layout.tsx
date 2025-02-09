@@ -33,6 +33,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />, // 🏠 Home icon
         }}
       />
+     
       <Tabs.Screen
         name="authentication"
         options={{
