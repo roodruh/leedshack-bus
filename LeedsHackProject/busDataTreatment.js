@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { execSync } = require('child_process');
 const prompt = require('prompt-sync')();
 
 function chunkArray(array, chunkSize) {
@@ -8,7 +9,6 @@ function chunkArray(array, chunkSize) {
   }
   return chunks;
 }
-
 
 function extractDataArray(jsonData) {
   if (jsonData.Siri) {
@@ -97,10 +97,19 @@ export function processJSONFileInChunks(filePath, chunkSize, targetVehicleRef) {
   }
 }
 
+function runAPICallScript() {
+  try {
+    execSync('python /c:/Users/adamj/OneDrive/Documents/leedsHack2025/leedshack-bus/API-Call.py', { stdio: 'inherit' });
+    console.log("API call and data extraction completed.");
+  } catch (err) {
+    console.error("Error running API call script:", err);
+  }
+}
+
+runAPICallScript();
+
 const filePath = 'C:/Users/adamj/OneDrive/Documents/leedsHack2025/leedshack-bus/LeedsHackProject/data.json';
-
 const targetVehicleRef = prompt("Please enter your vehicle reference number: ");
-
 const chunkSize = 100;
 
 processJSONFileInChunks(filePath, chunkSize, targetVehicleRef);
