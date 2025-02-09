@@ -10,20 +10,20 @@ interface ReviewItemProps {
 }
 
 const ReviewItem: React.FC<ReviewItemProps> = ({ name, rating, description, imageUrl }) => {
-  const renderStars = () => {
-    const stars = [];
-    for (let i = 0; i < 5; i++) {
-      stars.push(
-        <FontAwesome
-          key={i}
-          name={i < rating ? 'star' : 'star-o'}
-          size={16}
-          color="#FFD700"
-        />
-      );
-    }
-    return stars;
-  };
+    const renderStars = (): JSX.Element[] => {
+        const stars: JSX.Element[] = []; // Explicitly typing the array as JSX.Element[]
+        for (let i = 0; i < 5; i++) {
+          stars.push(
+            <FontAwesome
+              key={i}
+              name={i < rating ? 'star' : 'star-o'}
+              size={32} // You can adjust the size as needed
+              color="#FFD700"
+            />
+          );
+        }
+        return stars;
+      };
 
   return (
     <View style={styles.reviewContainer}>
